@@ -1,0 +1,7 @@
+gen:
+  image: jwilder/docker-gen
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+    - /etc/cron.d:/tmp/cron.d
+    - templates:/etc/docker-gen/templates
+  command: -watch /etc/docker-gen/templates/cron.tmpl /tmp/cron.d/docker-cronjobs
